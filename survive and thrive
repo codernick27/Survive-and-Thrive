@@ -1,0 +1,171 @@
+"""
+Main file for my Integration Project. This game is all about survival,
+the decisions you choose will lead you to life or death. Be careful!
+"""
+__author__ = "Nicholas Haug"
+
+
+def introduction():
+    """
+    This function is used to describe the introduction of the game and
+    determine if someone can play it or not
+    """
+    print("Hello welcome to my integration project.")
+    print("Time to play Survive and Thrive.")
+    print("First to play this game you need to know it can be graphic.")
+    age = input("Are you over the age of 18? yes or no")
+    if age == "yes":
+        print("Great let's start.")
+    else:
+        print("Sorry you cannot play.")
+
+
+def start():
+    """
+    This function is the start of the game, your inputs determine the outcome
+    """
+    print("You awaken in your house early in the morning to loud bangs, "
+          "you look out the window and see the world on fire and things "
+          "blowing up.")
+    print("Your next move is crucial for your survival, what do you do?")
+    decision1 = input("Make a decision." + "stay at home or make a survival "
+                                           "plan?")
+    if decision1 == "make a survival plan":
+        print("Pack a survival bag and go to your car.")
+        print("Your plan requires you to leave the city and head for the "
+              "woods, but you notice your gas tank is only at half.")
+        decision2 = input("Make a decision." "Do you get gas or hope your car "
+                          "will make the trip.")
+        if decision2 != "hope your car will make the trip":
+            print("All gas stations or empty you run out of gas and stuck in "
+                  "the city. Eventually you die.")
+        else:
+            print("you finally got out of the city to an abandon cabin in the "
+                  "woods. You can see the smoke in the air from the city.")
+            print("Your car ran out of gas in the process and it wont be of "
+                  "use anymore.")
+            print("You start to feel hungry but you forgot food to bring and "
+                  "it's dark outside.")
+            decision3 = input("Make a decision. Do you hunt at night or go "
+                              "hungry until morning?")
+            if decision3 == "go hungry until morning":
+                print("Good choice you don't know the area you might get "
+                      "lost.")
+                print("Morning is here you grab your rifle with some ammo and"
+                      " head out.")
+                print("You're out for hours and drank all of your water, there"
+                      " happens to be a stream near by.")
+                decision4 = input("Make a decision. Do you drink the "
+                                  "stream water or wait to boil it?")
+                if decision4 == "wait to boil it":
+                    print("Perfect choice, you can't get sick now.")
+                    print("Once you boil your water, you set back out to hunt "
+                          "before dark.")
+                    print("Since it's late you only set some traps in hopes "
+                          "for small game.")
+                else:
+                    print("There's bacteria in the water that caused you to "
+                          "get sick and die.")
+            else:
+                print("You got lost and fell off a cliff, you didn't survive.")
+    else:
+        print("Wrong decision, your house blows up from a gas leak, you die.")
+
+
+def hunting():
+    """
+    This function helps describe the part of the game where you hunt for
+    your food.
+    :return: it returns the value where 1 and 2 miss the shot, 3 and 4 is a
+    hit but is not a kill shot and 5 and 6 are kill shots.
+    """
+    print("It's early next morning and you set off to hunt some big game.")
+    print("After an hour of walking you finally spot a deer 100 yards out")
+    decision5 = input("Do you take the shot or wait until your traps have "
+                      "something?")
+    if decision5 == "take the shot":
+        print("You grab your rifle and take aim for a shot")
+        import random
+        shot = random.randint(1, 7)
+        for index in range(1):
+            if shot <= 2:
+                print("Shot miss, the deer got away.")
+                decision6 = input("Do you, go back to the cabin or continue"
+                                  " hunting?")
+                if decision6 != "go back to the cabin":
+                    print("You get lost in the woods and freeze to death")
+                else:
+                    print("You get back to the cabin and start a fire to "
+                          "keep warm for the night.")
+            elif 2 < shot < 5:
+                print("You hit the deer but it wasn't a kill shot, now you "
+                      "have to track him in the woods")
+                print("You follow the blood trail for more than a mile and "
+                      "starting to lose your path")
+                decision7 = input("Do you continue searching for the deer or "
+                                  "give up and head back?")
+                if decision7 == "continue searching for the deer":
+                    print("You search for another 100 yards and found the deer"
+                          " laying on the ground.")
+                    print("The sun is setting and you don't have light.")
+                    decision8 = input("Do you cut the intestines out now or "
+                                      "drag the deer back to the cabin?")
+                    if decision8 == "cut the intestines out now":
+                        print("You saved the meat but you are lost and hear "
+                              "wolves in the distance")
+                        print("They can smell the fresh kill and surround you,"
+                              " you give up the deer, but want you as well")
+                        print("You can't defend yourself, they eat you.")
+                    else:
+                        print("The intestines leaked into the meat and spoiled"
+                              " the meat")
+                        print("You wasted all the energy and time, now you "
+                              "can't find your way back because of the dark."
+                              "you freeze to death.")
+                else:
+                    print("You check on the traps you laid earlier and found "
+                          "a rabbit in trap")
+                    print("You skin the rabbit and clean the intestines out "
+                          "and have a meal for the night")
+            else:
+                print("Critical hit! What a shot.")
+                print("You walk over to the deer and clean the meat")
+    else:
+        print("Your traps have a rabbit in them, you have food for the night.")
+
+
+def end_game():
+    """
+    This function closes out the game, the decisions made you in the game
+    made you live until the end
+    """
+    print("A new day arrives and the fires have seemed to be put out.")
+    print("You notice a secret compartment in the cabin and notice a radio "
+          "but no batteries around. You remembered passing a store on the to"
+          " the woods")
+    decision9 = input("Do you search for batteries at the store or stay put?")
+    if decision9 == "search for batteries at the store":
+        print("You break into the abandoned store and find batteries")
+        print("You listen to the radio and realize all the commotion was from "
+              "an alien race that came to take over the world. But had no "
+              "idea that the human race would finally bond together and beat "
+              "the aliens.")
+        print("After weeks you can finally return home and have human "
+              "interaction again and have a normal life.")
+    else:
+        print("You live the rest of your life in the woods for no reason.")
+
+
+def play_again():
+    """
+    Play again function allows someone who finished the game to play again
+    and have a different outcome.
+    """
+    again = input("Do you want to play again yes or no")
+    if again == "yes":
+        start()
+    elif again == "no":
+        print("Thanks for surviving hope you had fun!")
+    else:
+        print("Input invalid, please try another.")
+        introduction()
